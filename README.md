@@ -20,6 +20,3 @@ This is a simple Todo List application built with HTML, CSS, and JavaScript. The
 - HTML
 - CSS
 - JavaScript
-
-## License
-This project is licensed under the MIT License.
