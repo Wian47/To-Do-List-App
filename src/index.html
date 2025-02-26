@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Todo List</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="app-header">
+            <h1>My Tasks <span class="subtitle">Get things done</span></h1>
+        </header>
+        
+        <form id="todo-form" class="todo-form">
+            <input type="text" id="todo-input" placeholder="What needs to be done?" required>
+            <button type="submit">
+                <i class="fas fa-plus"></i>
+            </button>
+        </form>
+
+        <div class="todo-container">
+            <ul id="todo-list" class="todo-list"></ul>
+        </div>
+
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="active">Active</button>
+            <button class="filter-btn" data-filter="completed">Completed</button>
+        </div>
+    </div>
+    <script src="scripts/main.js"></script>
+</body>
+</html>

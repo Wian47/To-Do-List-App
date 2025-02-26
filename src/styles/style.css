@@ -1,0 +1,386 @@
+:root {
+    --primary-color: #a855f7;
+    --secondary-color: #8b5cf6;
+    --background-color: #0f172a;
+    --surface-color: rgba(30, 41, 59, 0.7);
+    --text-color: #e2e8f0;
+    --glow-color: rgba(168, 85, 247, 0.3);
+    --danger-color: #ff4646;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header {
+    background: #35424a;
+    color: #ffffff;
+    padding: 15px 20px;
+    text-align: center;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+}
+
+h1 {
+    margin: 0;
+}
+
+.container {
+    width: 90%;
+    max-width: 600px;
+    background: var(--surface-color);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3),
+                0 0 50px var(--glow-color);
+    animation: floatIn 0.8s ease-out;
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin: 1.5rem;
+}
+
+@keyframes floatIn {
+    0% {
+        transform: translateY(50px) scale(0.9);
+        opacity: 0;
+    }
+    50% {
+        transform: translateY(-10px) scale(1.02);
+    }
+    100% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+}
+
+.app-header h1 {
+    background: linear-gradient(
+        45deg,
+        var(--primary-color),
+        var(--secondary-color)
+    );
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: gradient-animation 5s ease infinite;
+    margin-bottom: 0;
+    font-size: 2.5rem;
+    animation: neon-pulse 2s infinite;
+    letter-spacing: 0.5px;
+}
+
+.subtitle {
+    font-size: 1rem;
+    color: #94a3b8;
+    display: block;
+    font-weight: normal;
+    margin-top: 0.5rem;
+    letter-spacing: 0.5px;
+}
+
+.todo-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+}
+
+.todo-form input {
+    flex: 1;
+    padding: 15px 25px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: rgba(15, 23, 42, 0.6);
+    color: var(--text-color);
+    box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.2);
+    letter-spacing: 0.5px;
+}
+
+.todo-form input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 15px var(--glow-color);
+    transform: translateY(-2px);
+}
+
+.todo-form button {
+    position: relative;
+    padding: 15px 30px;
+    background: var(--primary-color);
+    border: none;
+    border-radius: 15px;
+    color: #0f172a;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 0 20px var(--glow-color);
+    overflow: hidden;
+}
+
+.todo-form button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2));
+    transform: translateX(-100%);
+    transition: 0.5s;
+}
+
+.todo-form button:hover::before {
+    transform: translateX(100%);
+}
+
+.todo-form button:hover {
+    background: #00cc82;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 0 30px var(--glow-color);
+}
+
+.todo-form button:active {
+    transform: translateY(0) scale(0.95);
+}
+
+.todo-list {
+    list-style: none;
+}
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    margin: 15px 0;
+    background: rgba(30, 41, 59, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    animation: slideInLeft 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    justify-content: flex-start;
+    transform-origin: center left;
+    will-change: transform, opacity, background;
+}
+
+.todo-item span {
+    flex: 1;
+    letter-spacing: 0.3px;
+    margin: 0 1rem;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.todo-item:hover {
+    transform: translateY(-2px) scale(1.01);
+    transition-duration: 0.4s;
+    box-shadow: 0 0 20px rgba(0, 255, 163, 0.2);
+    background: rgba(30, 41, 59, 0.8);
+    border-color: var(--primary-color);
+}
+
+@keyframes slideInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-20px) scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+.todo-item.completed {
+    opacity: 0.7;
+    background: rgba(15, 23, 42, 0.3);
+    border-color: rgba(255, 255, 255, 0.05);
+    transform: scale(0.98);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.todo-item.deleting {
+    animation: deleteAnim 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+@keyframes deleteAnim {
+    0% {
+        transform: scale(1) translateX(0);
+        opacity: 1;
+    }
+    20% {
+        transform: scale(1.05) translateX(0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0.8) translateX(100%);
+        opacity: 0;
+    }
+}
+
+.filters {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.filter-btn {
+    position: relative;
+    padding: 12px 25px;
+    border-radius: 12px;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    color: var(--text-color);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    letter-spacing: 0.5px;
+}
+
+.filter-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.filter-btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.filter-btn.active {
+    background: var(--primary-color);
+    color: white;
+    box-shadow: 0 2px 8px rgba(168, 85, 247, 0.3);
+}
+
+.filter-btn:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    background: rgba(30, 41, 59, 0.8);
+    border-color: var(--primary-color);
+}
+
+.filter-btn.active:hover {
+    background: #1976d2;
+}
+
+/* Add checkbox styling */
+.todo-item input[type="checkbox"] {
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    margin-right: 0.5rem;
+    border-radius: 10px;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    flex-shrink: 0;
+}
+
+.todo-item input[type="checkbox"]:checked {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 15px var(--glow-color);
+    transition-duration: 0.4s;
+}
+
+.todo-item input[type="checkbox"]:checked::before {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 16px;
+}
+
+/* Delete button styling */
+.todo-item button {
+    width: 35px;
+    height: 35px;
+    margin-left: 1rem;
+    background: var(--danger-color);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 0 15px rgba(255, 70, 70, 0.3);
+    flex-shrink: 0;
+}
+
+.todo-item:hover button {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.todo-item button:hover {
+    background: #ff3333;
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(255, 70, 70, 0.4);
+}
+
+/* Add cool loading animation */
+@keyframes gradient-animation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Add neon text effect */
+@keyframes neon-pulse {
+    0% {
+        text-shadow: 0 0 5px var(--primary-color),
+                     0 0 10px var(--primary-color),
+                     0 0 20px var(--secondary-color);
+    }
+    50% {
+        text-shadow: 0 0 10px var(--primary-color),
+                     0 0 20px var (--primary-color),
+                     0 0 40px var(--secondary-color);
+    }
+    100% {
+        text-shadow: 0 0 5px var(--primary-color),
+                     0 0 10px var(--primary-color),
+                     0 0 20px var(--secondary-color);
+    }
+}
+
+/* Improve todo list container spacing */
+.todo-container {
+    margin: 2rem 0;
+    padding: 0.5rem 0.5rem;
+}
+
+/* Remove the additional spacing variables and their references */
