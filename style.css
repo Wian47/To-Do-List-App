@@ -291,7 +291,6 @@ h1 {
     background: #1976d2;
 }
 
-/* Add checkbox styling */
 .todo-item input[type="checkbox"] {
     appearance: none;
     width: 25px;
@@ -324,7 +323,6 @@ h1 {
     font-size: 16px;
 }
 
-/* Delete button styling */
 .todo-item button {
     width: 35px;
     height: 35px;
@@ -351,14 +349,12 @@ h1 {
     box-shadow: 0 0 20px rgba(255, 70, 70, 0.4);
 }
 
-/* Add cool loading animation */
 @keyframes gradient-animation {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
 }
 
-/* Add neon text effect */
 @keyframes neon-pulse {
     0% {
         text-shadow: 0 0 5px var(--primary-color),
@@ -377,10 +373,7 @@ h1 {
     }
 }
 
-/* Improve todo list container spacing */
 .todo-container {
     margin: 2rem 0;
     padding: 0.5rem 0.5rem;
 }
-
-/* Remove the additional spacing variables and their references */
